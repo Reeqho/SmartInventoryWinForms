@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cfd2fda83141421b914d5b0011f48c96" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartInventoryDBModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.Role" Width="1.5" PointX="1.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.SaleDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.Sale" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.Supplier" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartInventoryDBModel.User" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__Products__Catego__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__Products__Suppli__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__SaleDetai__Produ__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__Users__RoleId__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__SaleDetai__SaleI__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartInventoryDBModel.FK__Sales__UserId__5CD6CB2B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
