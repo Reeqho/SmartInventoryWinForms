@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartInventory_SalesManagementSystem.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,26 @@ namespace SmartInventory_SalesManagementSystem
         }
 
         private void MainMenuForm_Load(object sender, EventArgs e)
+        {  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KelolaBarangForm kelolaBarangForm = new KelolaBarangForm();
+            kelolaBarangForm.MdiParent = this;
+            kelolaBarangForm.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
