@@ -82,7 +82,7 @@
             this.edit_btn,
             this.del_btn});
             this.dataGridView1.DataSource = this.productBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 78);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -159,7 +159,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 32);
             this.label1.TabIndex = 1;
@@ -168,7 +168,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
+            this.label2.Location = new System.Drawing.Point(18, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 2;
@@ -176,7 +176,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 50);
+            this.textBox1.Location = new System.Drawing.Point(84, 50);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(270, 22);
             this.textBox1.TabIndex = 3;
@@ -185,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 462);
+            this.label3.Location = new System.Drawing.Point(18, 462);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 16);
             this.label3.TabIndex = 4;
@@ -194,7 +194,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 495);
+            this.label4.Location = new System.Drawing.Point(18, 495);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 5;
@@ -203,7 +203,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 528);
+            this.label5.Location = new System.Drawing.Point(18, 528);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 6;
@@ -212,7 +212,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 560);
+            this.label6.Location = new System.Drawing.Point(18, 560);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 16);
             this.label6.TabIndex = 7;
@@ -221,7 +221,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 595);
+            this.label7.Location = new System.Drawing.Point(18, 595);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 16);
             this.label7.TabIndex = 8;
@@ -230,7 +230,7 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ProductBinding1, "ProductName", true));
-            this.textBox2.Location = new System.Drawing.Point(108, 459);
+            this.textBox2.Location = new System.Drawing.Point(114, 459);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(209, 22);
             this.textBox2.TabIndex = 9;
@@ -244,7 +244,7 @@
             this.comboBox1.DataSource = this.categoryBindingSource;
             this.comboBox1.DisplayMember = "CategoryName";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 492);
+            this.comboBox1.Location = new System.Drawing.Point(114, 492);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(209, 24);
             this.comboBox1.TabIndex = 10;
@@ -259,7 +259,7 @@
             this.comboBox2.DataSource = this.supplierBindingSource;
             this.comboBox2.DisplayMember = "SupplierName";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(108, 525);
+            this.comboBox2.Location = new System.Drawing.Point(114, 525);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(209, 24);
             this.comboBox2.TabIndex = 11;
@@ -272,7 +272,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ProductBinding1, "Stock", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(108, 558);
+            this.numericUpDown1.Location = new System.Drawing.Point(114, 558);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -559939585,
             902409669,
@@ -285,7 +285,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ProductBinding1, "Price", true));
-            this.numericUpDown2.Location = new System.Drawing.Point(108, 593);
+            this.numericUpDown2.Location = new System.Drawing.Point(114, 593);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             -559939585,
             902409669,

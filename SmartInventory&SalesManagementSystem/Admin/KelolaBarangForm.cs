@@ -46,7 +46,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
         {
             if (productBindingSource.Current is Product product)
             {
-                ProductBinding1.DataSource = db.Products.FirstOrDefault(s => s.ProductId == product.ProductId);
+                ProductBinding1.DataSource = db.Products.AsNoTracking().FirstOrDefault(s => s.ProductId == product.ProductId);
                 categoryBindingSource.Position = db.Categories.ToList().FindIndex(s => s.CategoryId == product.CategoryId);
                 supplierBindingSource.Position = db.Suppliers.ToList().FindIndex(s => s.SupplierId == product.SupplierId);
             }
