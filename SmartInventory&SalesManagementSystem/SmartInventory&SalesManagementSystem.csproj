@@ -67,6 +67,12 @@
     <Compile Include="Admin\KelolaKategoriForm.Designer.cs">
       <DependentUpon>KelolaKategoriForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\KelolaSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\KelolaSupplierForm.Designer.cs">
+      <DependentUpon>KelolaSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\KelolaUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\KelolaKategoriForm.resx">
       <DependentUpon>KelolaKategoriForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\KelolaSupplierForm.resx">
+      <DependentUpon>KelolaSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\KelolaUserForm.resx">
       <DependentUpon>KelolaUserForm.cs</DependentUpon>
