@@ -79,6 +79,12 @@
     <Compile Include="Admin\KelolaUserForm.Designer.cs">
       <DependentUpon>KelolaUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LaporanPenjualanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\LaporanPenjualanForm.Designer.cs">
+      <DependentUpon>LaporanPenjualanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\KelolaUserForm.resx">
       <DependentUpon>KelolaUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\LaporanPenjualanForm.resx">
+      <DependentUpon>LaporanPenjualanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
