@@ -66,5 +66,10 @@ namespace SmartInventory_SalesManagementSystem
         {
             OpenForm(new KelolaSupplierForm());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenForm(new LaporanPenjualanForm());
+        }
     }
 }

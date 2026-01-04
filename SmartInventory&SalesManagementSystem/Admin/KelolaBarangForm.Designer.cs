@@ -164,6 +164,7 @@
             this.label1.Size = new System.Drawing.Size(207, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Kelola Barang";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 

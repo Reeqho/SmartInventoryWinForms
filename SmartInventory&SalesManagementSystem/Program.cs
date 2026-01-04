@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartInventory_SalesManagementSystem.Kasir;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace SmartInventory_SalesManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenuForm());
+            Application.Run(new TransaksiPenjualanForm());
         }
     }
 }

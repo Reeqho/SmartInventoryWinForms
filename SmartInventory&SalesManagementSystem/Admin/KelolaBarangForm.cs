@@ -174,5 +174,10 @@ namespace SmartInventory_SalesManagementSystem.Admin
                 || s.Supplier.SupplierName.ToLower().Trim().Contains(textBox1.Text.ToLower().Trim())).ToList();
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
