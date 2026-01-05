@@ -85,6 +85,7 @@
     <Compile Include="Admin\LaporanPenjualanForm.Designer.cs">
       <DependentUpon>LaporanPenjualanForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cart.cs" />
     <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -182,6 +183,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cart.datasource" />
     <None Include="Properties\DataSources\Category.datasource" />
     <None Include="Properties\DataSources\Product.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />

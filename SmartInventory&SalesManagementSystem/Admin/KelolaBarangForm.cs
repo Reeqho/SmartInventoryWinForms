@@ -80,6 +80,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
                 product.SupplierId = supplier.SupplierId;
                 //product.Price += .00;
                 db.Products.AddOrUpdate(product);
+           
                 if (MessageBox.Show("Apakah anda ingin menyimpan data tersebut?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;
