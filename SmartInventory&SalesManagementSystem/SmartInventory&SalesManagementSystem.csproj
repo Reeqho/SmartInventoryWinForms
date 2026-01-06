@@ -89,6 +89,12 @@
     <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kasir\RiwayatTransaksiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kasir\RiwayatTransaksiForm.Designer.cs">
+      <DependentUpon>RiwayatTransaksiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kasir\TransaksiPenjualanForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\LaporanPenjualanForm.resx">
       <DependentUpon>LaporanPenjualanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kasir\RiwayatTransaksiForm.resx">
+      <DependentUpon>RiwayatTransaksiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kasir\TransaksiPenjualanForm.resx">
       <DependentUpon>TransaksiPenjualanForm.cs</DependentUpon>
