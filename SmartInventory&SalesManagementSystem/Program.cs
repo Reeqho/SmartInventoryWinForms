@@ -17,7 +17,7 @@ namespace SmartInventory_SalesManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TransaksiPenjualanForm());
+            Application.Run(new MainMenuForm());
         }
     }
 }

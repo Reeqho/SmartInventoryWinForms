@@ -1,4 +1,5 @@
 ﻿using SmartInventory_SalesManagementSystem.Admin;
+using SmartInventory_SalesManagementSystem.Kasir;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace SmartInventory_SalesManagementSystem
 {
     public partial class MainMenuForm : Form
     {
+        int test = 1;
         public MainMenuForm()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace SmartInventory_SalesManagementSystem
 
         private void CloseAllMdiChild()
         {
-            foreach(Form child in MdiChildren)
+            foreach (Form child in MdiChildren)
             {
                 child.Close();
             }
@@ -38,7 +40,20 @@ namespace SmartInventory_SalesManagementSystem
 
 
         private void MainMenuForm_Load(object sender, EventArgs e)
-        {  
+        {
+            
+            if (test == 1)
+            {
+                tableLayoutPanel1.Visible = false;
+                tableLayoutPanel1.Controls.Clear();
+                tableLayoutPanel2.Location = new Point(3, 0);
+            }
+            else
+            {
+                tableLayoutPanel2.Visible = false;
+                tableLayoutPanel2.Controls.Clear();
+                tableLayoutPanel1.Location = new Point(3, 0);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +85,17 @@ namespace SmartInventory_SalesManagementSystem
         private void button5_Click(object sender, EventArgs e)
         {
             OpenForm(new LaporanPenjualanForm());
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            OpenForm(new TransaksiPenjualanForm());
+            
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            OpenForm(new RiwayatTransaksiForm());
         }
     }
 }
