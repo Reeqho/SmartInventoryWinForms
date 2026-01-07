@@ -38,20 +38,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.supplierbinding1 = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierbinding1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -151,53 +151,6 @@
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // supplierNameDataGridViewTextBoxColumn
-            // 
-            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
-            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "Nama Supplier";
-            this.supplierNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
-            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // del_btn
-            // 
-            this.del_btn.HeaderText = "";
-            this.del_btn.MinimumWidth = 6;
-            this.del_btn.Name = "del_btn";
-            this.del_btn.ReadOnly = true;
-            this.del_btn.Text = "Delete";
-            this.del_btn.UseColumnTextForButtonValue = true;
-            // 
-            // edit_btn
-            // 
-            this.edit_btn.HeaderText = "";
-            this.edit_btn.MinimumWidth = 6;
-            this.edit_btn.Name = "edit_btn";
-            this.edit_btn.ReadOnly = true;
-            this.edit_btn.Text = "Edit";
-            this.edit_btn.UseColumnTextForButtonValue = true;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
-            this.supplierBindingSource.PositionChanged += new System.EventHandler(this.supplierBindingSource_PositionChanged);
-            // 
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierbinding1, "Phone", true));
@@ -236,6 +189,53 @@
             // 
             this.supplierbinding1.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
             // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
+            this.supplierBindingSource.PositionChanged += new System.EventHandler(this.supplierBindingSource_PositionChanged);
+            // 
+            // supplierNameDataGridViewTextBoxColumn
+            // 
+            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "Nama Supplier";
+            this.supplierNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
+            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Nomor Telepon";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Alamat";
+            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // del_btn
+            // 
+            this.del_btn.HeaderText = "";
+            this.del_btn.MinimumWidth = 6;
+            this.del_btn.Name = "del_btn";
+            this.del_btn.ReadOnly = true;
+            this.del_btn.Text = "Delete";
+            this.del_btn.UseColumnTextForButtonValue = true;
+            // 
+            // edit_btn
+            // 
+            this.edit_btn.HeaderText = "";
+            this.edit_btn.MinimumWidth = 6;
+            this.edit_btn.Name = "edit_btn";
+            this.edit_btn.ReadOnly = true;
+            this.edit_btn.Text = "Edit";
+            this.edit_btn.UseColumnTextForButtonValue = true;
+            // 
             // KelolaSupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,8 +258,8 @@
             this.Text = "KelolaSupplierForm";
             this.Load += new System.EventHandler(this.KelolaSupplierForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierbinding1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,16 +276,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn del_btn;
-        private System.Windows.Forms.DataGridViewButtonColumn edit_btn;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource supplierbinding1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn del_btn;
+        private System.Windows.Forms.DataGridViewButtonColumn edit_btn;
     }
 }

@@ -155,5 +155,16 @@ namespace SmartInventory_SalesManagementSystem.Admin
                 }
             }
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is User user)
+            {
+                if(e.ColumnIndex == roleIdDataGridViewTextBoxColumn.Index)
+                {
+                    e.Value = user.Role.RoleName;
+                }
+            }
+        }
     }
 }

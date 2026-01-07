@@ -16,7 +16,7 @@ namespace SmartInventory_SalesManagementSystem
     public partial class MainMenuForm : Form
     {
         int test = 1;
-        public bool IsAdmin;
+        public bool IsAdmin = true;
         public MainMenuForm()
         {
             InitializeComponent();
