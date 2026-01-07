@@ -44,5 +44,10 @@ namespace SmartInventory_SalesManagementSystem
             }
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

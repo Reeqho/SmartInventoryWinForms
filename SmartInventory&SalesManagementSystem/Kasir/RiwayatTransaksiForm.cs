@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace SmartInventory_SalesManagementSystem.Kasir
         private void RiwayatTransaksiForm_Load(object sender, EventArgs e)
         {
             saleDetailBindingSource.Clear();
+            saleBindingSource.Clear();
+            SaleBindingTanggal.DataSource = db.Sales.Select(s => DbFunctions.TruncateTime(s.SaleDate)).Distinct().ToList();
             saleBindingSource.DataSource = db.Sales.ToList();
         }
 
@@ -29,16 +32,46 @@ namespace SmartInventory_SalesManagementSystem.Kasir
         {
             if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Sale sale)
             {
-                if(e.ColumnIndex == detail_btn.Index)
+                var sales_detail = db.SaleDetails.Where(s => s.SaleId == sale.SaleId);
+                if (e.ColumnIndex == detail_btn.Index)
                 {
-                    saleDetailBindingSource.DataSource = db.SaleDetails.Where(s => s.SaleId == sale.SaleId).ToList();
+                    saleDetailBindingSource.DataSource = sales_detail.ToList();
+                    label4.Text = $"Total Transaksi : {sales_detail.ToList().Count}";
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RiwayatTransaksiForm_Load(sender, e);
+        }
 
+        private void SaleBindingTanggal_CurrentChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Parse(comboBox2.Text);
+            saleBindingSource.DataSource = db.Sales.Where(s => DbFunctions.TruncateTime(s.SaleDate) == DbFunctions.TruncateTime(date.Date)).ToList();
+        }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView2.Rows[e.RowIndex].DataBoundItem is SaleDetail saledetail)
+            {
+                if (e.ColumnIndex == productIdDataGridViewTextBoxColumn.Index)
+                {
+                    e.Value = saledetail.Product.ProductName;
+                }
+            }
         }
     }
 }

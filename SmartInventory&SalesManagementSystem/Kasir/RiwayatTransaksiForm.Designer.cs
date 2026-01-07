@@ -31,26 +31,29 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.SaleBindingTanggal = new System.Windows.Forms.BindingSource(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaleBindingTanggal)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,36 +88,6 @@
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Tanggal :";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(85, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(256, 22);
-            this.dateTimePicker1.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(996, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 41);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Semua Data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // saleBindingSource
-            // 
-            this.saleBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Sale);
-            // 
             // saleDateDataGridViewTextBoxColumn
             // 
             this.saleDateDataGridViewTextBoxColumn.DataPropertyName = "SaleDate";
@@ -148,6 +121,29 @@
             this.detail_btn.Text = "Detail";
             this.detail_btn.UseColumnTextForButtonValue = true;
             // 
+            // saleBindingSource
+            // 
+            this.saleBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Sale);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Tanggal :";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(996, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 41);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Semua Data";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -168,20 +164,7 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1155, 209);
             this.dataGridView2.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 341);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Detail : ";
-            // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
+            this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -215,6 +198,20 @@
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(14, 341);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Detail : ";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -224,16 +221,44 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Total Transaksi : ";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.SaleBindingTanggal;
+            this.comboBox2.DisplayMember = "SaleDate";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(86, 61);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(293, 24);
+            this.comboBox2.TabIndex = 17;
+            this.comboBox2.ValueMember = "SaleId";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // SaleBindingTanggal
+            // 
+            this.SaleBindingTanggal.DataSource = typeof(SmartInventory_SalesManagementSystem.Sale);
+            this.SaleBindingTanggal.CurrentChanged += new System.EventHandler(this.SaleBindingTanggal_CurrentChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(385, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 41);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Cek";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // RiwayatTransaksiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 684);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -244,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaleBindingTanggal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,7 +279,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
@@ -268,5 +293,8 @@
         private System.Windows.Forms.BindingSource saleDetailBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.BindingSource SaleBindingTanggal;
+        private System.Windows.Forms.Button button2;
     }
 }

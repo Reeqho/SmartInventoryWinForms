@@ -16,6 +16,7 @@ namespace SmartInventory_SalesManagementSystem
     public partial class MainMenuForm : Form
     {
         int test = 1;
+        public bool IsAdmin;
         public MainMenuForm()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace SmartInventory_SalesManagementSystem
             }
         }
 
+
         private void OpenForm(Form form)
         {
             CloseAllMdiChild();
@@ -41,8 +43,8 @@ namespace SmartInventory_SalesManagementSystem
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-            
-            if (test == 1)
+
+            if (IsAdmin == false)
             {
                 tableLayoutPanel1.Visible = false;
                 tableLayoutPanel1.Controls.Clear();
@@ -90,7 +92,7 @@ namespace SmartInventory_SalesManagementSystem
         private void button10_Click(object sender, EventArgs e)
         {
             OpenForm(new TransaksiPenjualanForm());
-            
+
         }
 
         private void button9_Click(object sender, EventArgs e)
