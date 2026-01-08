@@ -79,8 +79,18 @@ namespace SmartInventory_SalesManagementSystem.Admin
                 product.CategoryId = category.CategoryId;
                 product.SupplierId = supplier.SupplierId;
                 //product.Price += .00;
-                db.Products.AddOrUpdate(product);
-           
+                var check_product = db.Products.FirstOrDefault(s => s.ProductId == product.ProductId);
+                if (check_product == null)
+                {
+                    product.CreatedAt = DateTime.Now;
+                    db.Products.Add(product);
+                }
+                else
+                {
+                    db.Products.AddOrUpdate(product);
+                }
+
+
                 if (MessageBox.Show("Apakah anda ingin menyimpan data tersebut?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;

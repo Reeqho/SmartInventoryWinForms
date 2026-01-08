@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,10 +49,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SaleBindingTanggal = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detail_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -88,6 +88,39 @@
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "Nama Kasir";
+            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // saleDateDataGridViewTextBoxColumn
+            // 
+            this.saleDateDataGridViewTextBoxColumn.DataPropertyName = "SaleDate";
+            this.saleDateDataGridViewTextBoxColumn.HeaderText = "Tanggal";
+            this.saleDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
+            this.saleDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalAmountDataGridViewTextBoxColumn
+            // 
+            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
+            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Jumlah";
+            this.totalAmountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // detail_btn
+            // 
+            this.detail_btn.HeaderText = "Action";
+            this.detail_btn.MinimumWidth = 6;
+            this.detail_btn.Name = "detail_btn";
+            this.detail_btn.ReadOnly = true;
+            this.detail_btn.Text = "Detail";
+            this.detail_btn.UseColumnTextForButtonValue = true;
+            // 
             // saleBindingSource
             // 
             this.saleBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Sale);
@@ -103,7 +136,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(996, 36);
+            this.button1.Location = new System.Drawing.Point(996, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 41);
             this.button1.TabIndex = 12;
@@ -209,44 +242,11 @@
             // 
             this.button2.Location = new System.Drawing.Point(385, 44);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 41);
+            this.button2.Size = new System.Drawing.Size(177, 46);
             this.button2.TabIndex = 18;
             this.button2.Text = "Cek";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "Nama Kasir";
-            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // saleDateDataGridViewTextBoxColumn
-            // 
-            this.saleDateDataGridViewTextBoxColumn.DataPropertyName = "SaleDate";
-            this.saleDateDataGridViewTextBoxColumn.HeaderText = "Tanggal";
-            this.saleDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
-            this.saleDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalAmountDataGridViewTextBoxColumn
-            // 
-            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
-            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Jumlah";
-            this.totalAmountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
-            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // detail_btn
-            // 
-            this.detail_btn.HeaderText = "Action";
-            this.detail_btn.MinimumWidth = 6;
-            this.detail_btn.Name = "detail_btn";
-            this.detail_btn.ReadOnly = true;
-            this.detail_btn.Text = "Detail";
-            this.detail_btn.UseColumnTextForButtonValue = true;
             // 
             // RiwayatTransaksiForm
             // 
@@ -263,7 +263,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "RiwayatTransaksiForm";
-            this.Text = "RiwayatTransaksiForm";
+            this.Text = "Riwayat Transaksi";
             this.Load += new System.EventHandler(this.RiwayatTransaksiForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).EndInit();

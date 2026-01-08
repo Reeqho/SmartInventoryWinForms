@@ -38,13 +38,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.tanggal_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jam_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalOmzet_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,8 +73,9 @@
             this.productIdDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
-            this.subTotalDataGridViewTextBoxColumn,
-            this.totalOmzet_col});
+            this.tanggal_col,
+            this.jam_col,
+            this.subTotalDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.saleDetailBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(18, 137);
             this.dataGridView1.Name = "dataGridView1";
@@ -81,6 +84,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1161, 357);
             this.dataGridView1.TabIndex = 28;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // label2
             // 
@@ -140,14 +144,33 @@
             this.textBox1.Size = new System.Drawing.Size(406, 22);
             this.textBox1.TabIndex = 36;
             // 
-            // saleDetailBindingSource
+            // label5
             // 
-            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1028, 506);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 16);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Omzet : ";
+            // 
+            // tanggal_col
+            // 
+            this.tanggal_col.HeaderText = "Tanggal";
+            this.tanggal_col.MinimumWidth = 6;
+            this.tanggal_col.Name = "tanggal_col";
+            this.tanggal_col.ReadOnly = true;
+            // 
+            // jam_col
+            // 
+            this.jam_col.HeaderText = "Jam";
+            this.jam_col.MinimumWidth = 6;
+            this.jam_col.Name = "jam_col";
+            this.jam_col.ReadOnly = true;
             // 
             // saleIdDataGridViewTextBoxColumn
             // 
             this.saleIdDataGridViewTextBoxColumn.DataPropertyName = "SaleId";
-            this.saleIdDataGridViewTextBoxColumn.HeaderText = "Pembeli";
+            this.saleIdDataGridViewTextBoxColumn.HeaderText = "Kasir";
             this.saleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.saleIdDataGridViewTextBoxColumn.Name = "saleIdDataGridViewTextBoxColumn";
             this.saleIdDataGridViewTextBoxColumn.ReadOnly = true;
@@ -184,18 +207,17 @@
             this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
             this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // totalOmzet_col
+            // saleDetailBindingSource
             // 
-            this.totalOmzet_col.HeaderText = "Total Omzet";
-            this.totalOmzet_col.MinimumWidth = 6;
-            this.totalOmzet_col.Name = "totalOmzet_col";
-            this.totalOmzet_col.ReadOnly = true;
+            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
+            this.saleDetailBindingSource.CurrentChanged += new System.EventHandler(this.saleDetailBindingSource_CurrentChanged);
             // 
             // LaporanPenjualanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 684);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -206,7 +228,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "LaporanPenjualanForm";
-            this.Text = "LaporaPenjualanForm";
+            this.Text = "Laporan Penjualan";
             this.Load += new System.EventHandler(this.LaporanPenjualanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
@@ -227,11 +249,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource saleDetailBindingSource;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggal_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jam_col;
         private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalOmzet_col;
     }
 }

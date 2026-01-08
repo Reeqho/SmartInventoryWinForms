@@ -1,4 +1,5 @@
-﻿using SmartInventory_SalesManagementSystem.Kasir;
+﻿using SmartInventory_SalesManagementSystem.Admin;
+using SmartInventory_SalesManagementSystem.Kasir;
 using System;
 using System.Collections.Generic;
 using System.Linq;

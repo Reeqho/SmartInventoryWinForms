@@ -40,19 +40,19 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalCart_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceCart_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalCart_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -166,11 +166,11 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productNameDataGridViewTextBoxColumn,
-            this.subtotalCart_col,
             this.categoryNameDataGridViewTextBoxColumn,
             this.supplierNameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
-            this.priceCart_col});
+            this.priceCart_col,
+            this.subtotalCart_col});
             this.dataGridView2.DataSource = this.cartBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(18, 350);
             this.dataGridView2.Name = "dataGridView2";
@@ -184,23 +184,15 @@
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Nama Produk";
             this.productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // subtotalCart_col
-            // 
-            this.subtotalCart_col.DataPropertyName = "SubTotal";
-            this.subtotalCart_col.HeaderText = "SubTotal";
-            this.subtotalCart_col.MinimumWidth = 6;
-            this.subtotalCart_col.Name = "subtotalCart_col";
-            this.subtotalCart_col.ReadOnly = true;
-            // 
             // categoryNameDataGridViewTextBoxColumn
             // 
             this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "Kategori";
             this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
             this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -208,7 +200,7 @@
             // supplierNameDataGridViewTextBoxColumn
             // 
             this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
-            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "Nama Supplier";
             this.supplierNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
             this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -229,14 +221,18 @@
             this.priceCart_col.Name = "priceCart_col";
             this.priceCart_col.ReadOnly = true;
             // 
+            // subtotalCart_col
+            // 
+            this.subtotalCart_col.DataPropertyName = "SubTotal";
+            this.subtotalCart_col.HeaderText = "Sub Total";
+            this.subtotalCart_col.MinimumWidth = 6;
+            this.subtotalCart_col.Name = "subtotalCart_col";
+            this.subtotalCart_col.ReadOnly = true;
+            // 
             // cartBindingSource
             // 
             this.cartBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Cart);
             this.cartBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.cartBindingSource_ListChanged);
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Product);
             // 
             // productNameDataGridViewTextBoxColumn1
             // 
@@ -286,6 +282,10 @@
             this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
             this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Product);
+            // 
             // TransaksiPenjualanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -302,7 +302,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TransaksiPenjualanForm";
-            this.Text = "TransaksiPenjualanForm";
+            this.Text = "Transaksi Penjualan";
             this.Load += new System.EventHandler(this.TransaksiPenjualanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -328,17 +328,17 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.BindingSource cartBindingSource;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalCart_col;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceCart_col;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceCart_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalCart_col;
     }
 }

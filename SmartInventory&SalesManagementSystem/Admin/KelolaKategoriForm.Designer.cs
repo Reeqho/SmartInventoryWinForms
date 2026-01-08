@@ -36,10 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.categorybinding1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -126,23 +126,6 @@
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 459);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 16);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Nama Kategori";
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categorybinding1, "CategoryName", true));
-            this.textBox2.Location = new System.Drawing.Point(121, 456);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 22);
-            this.textBox2.TabIndex = 25;
-            // 
             // edit_btn
             // 
             this.edit_btn.HeaderText = "";
@@ -160,6 +143,23 @@
             this.del_btn.ReadOnly = true;
             this.del_btn.Text = "Delete";
             this.del_btn.UseColumnTextForButtonValue = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 459);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 16);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Nama Kategori";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categorybinding1, "CategoryName", true));
+            this.textBox2.Location = new System.Drawing.Point(121, 456);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(166, 22);
+            this.textBox2.TabIndex = 25;
             // 
             // categorybinding1
             // 
@@ -193,7 +193,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "KelolaKategoriForm";
-            this.Text = "KelolaKategoriForm";
+            this.Text = "Kelola Kategori";
             this.Load += new System.EventHandler(this.KelolaKategoriForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorybinding1)).EndInit();

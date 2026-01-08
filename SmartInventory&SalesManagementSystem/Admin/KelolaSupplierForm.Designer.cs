@@ -42,13 +42,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.supplierbinding1 = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierbinding1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
@@ -139,8 +139,8 @@
             this.supplierNameDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
-            this.del_btn,
-            this.edit_btn});
+            this.edit_btn,
+            this.del_btn});
             this.dataGridView1.DataSource = this.supplierBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(18, 78);
             this.dataGridView1.Name = "dataGridView1";
@@ -185,14 +185,27 @@
             this.label5.TabIndex = 37;
             this.label5.Text = "Alamat";
             // 
+            // edit_btn
+            // 
+            this.edit_btn.HeaderText = "";
+            this.edit_btn.MinimumWidth = 6;
+            this.edit_btn.Name = "edit_btn";
+            this.edit_btn.ReadOnly = true;
+            this.edit_btn.Text = "Edit";
+            this.edit_btn.UseColumnTextForButtonValue = true;
+            // 
+            // del_btn
+            // 
+            this.del_btn.HeaderText = "";
+            this.del_btn.MinimumWidth = 6;
+            this.del_btn.Name = "del_btn";
+            this.del_btn.ReadOnly = true;
+            this.del_btn.Text = "Delete";
+            this.del_btn.UseColumnTextForButtonValue = true;
+            // 
             // supplierbinding1
             // 
             this.supplierbinding1.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
-            this.supplierBindingSource.PositionChanged += new System.EventHandler(this.supplierBindingSource_PositionChanged);
             // 
             // supplierNameDataGridViewTextBoxColumn
             // 
@@ -218,23 +231,10 @@
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // del_btn
+            // supplierBindingSource
             // 
-            this.del_btn.HeaderText = "";
-            this.del_btn.MinimumWidth = 6;
-            this.del_btn.Name = "del_btn";
-            this.del_btn.ReadOnly = true;
-            this.del_btn.Text = "Delete";
-            this.del_btn.UseColumnTextForButtonValue = true;
-            // 
-            // edit_btn
-            // 
-            this.edit_btn.HeaderText = "";
-            this.edit_btn.MinimumWidth = 6;
-            this.edit_btn.Name = "edit_btn";
-            this.edit_btn.ReadOnly = true;
-            this.edit_btn.Text = "Edit";
-            this.edit_btn.UseColumnTextForButtonValue = true;
+            this.supplierBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.Supplier);
+            this.supplierBindingSource.PositionChanged += new System.EventHandler(this.supplierBindingSource_PositionChanged);
             // 
             // KelolaSupplierForm
             // 
@@ -255,7 +255,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "KelolaSupplierForm";
-            this.Text = "KelolaSupplierForm";
+            this.Text = "Kelola Supplier";
             this.Load += new System.EventHandler(this.KelolaSupplierForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierbinding1)).EndInit();
@@ -285,7 +285,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn del_btn;
         private System.Windows.Forms.DataGridViewButtonColumn edit_btn;
+        private System.Windows.Forms.DataGridViewButtonColumn del_btn;
     }
 }

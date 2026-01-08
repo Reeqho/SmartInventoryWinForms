@@ -40,6 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordHashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,14 +58,6 @@
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordHashDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit_btn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.userBinding1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -175,6 +175,72 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "Nama Lengkap";
+            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordHashDataGridViewTextBoxColumn
+            // 
+            this.passwordHashDataGridViewTextBoxColumn.DataPropertyName = "PasswordHash";
+            this.passwordHashDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordHashDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordHashDataGridViewTextBoxColumn.Name = "passwordHashDataGridViewTextBoxColumn";
+            this.passwordHashDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleIdDataGridViewTextBoxColumn
+            // 
+            this.roleIdDataGridViewTextBoxColumn.DataPropertyName = "RoleId";
+            this.roleIdDataGridViewTextBoxColumn.HeaderText = "Role";
+            this.roleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.roleIdDataGridViewTextBoxColumn.Name = "roleIdDataGridViewTextBoxColumn";
+            this.roleIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isActiveDataGridViewTextBoxColumn
+            // 
+            this.isActiveDataGridViewTextBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewTextBoxColumn.HeaderText = "IsActive";
+            this.isActiveDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
+            this.isActiveDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createdAtDataGridViewTextBoxColumn
+            // 
+            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
+            this.createdAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt";
+            this.createdAtDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // edit_btn
+            // 
+            this.edit_btn.HeaderText = "";
+            this.edit_btn.MinimumWidth = 6;
+            this.edit_btn.Name = "edit_btn";
+            this.edit_btn.ReadOnly = true;
+            this.edit_btn.Text = "Edit";
+            this.edit_btn.UseColumnTextForButtonValue = true;
+            // 
+            // del_btn
+            // 
+            this.del_btn.HeaderText = "";
+            this.del_btn.MinimumWidth = 6;
+            this.del_btn.Name = "del_btn";
+            this.del_btn.ReadOnly = true;
+            this.del_btn.Text = "Delete";
+            this.del_btn.UseColumnTextForButtonValue = true;
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.User);
@@ -264,72 +330,6 @@
             this.radioButton2.Text = "Non Aktif";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "Nama Lengkap";
-            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordHashDataGridViewTextBoxColumn
-            // 
-            this.passwordHashDataGridViewTextBoxColumn.DataPropertyName = "PasswordHash";
-            this.passwordHashDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordHashDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordHashDataGridViewTextBoxColumn.Name = "passwordHashDataGridViewTextBoxColumn";
-            this.passwordHashDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleIdDataGridViewTextBoxColumn
-            // 
-            this.roleIdDataGridViewTextBoxColumn.DataPropertyName = "RoleId";
-            this.roleIdDataGridViewTextBoxColumn.HeaderText = "Role";
-            this.roleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.roleIdDataGridViewTextBoxColumn.Name = "roleIdDataGridViewTextBoxColumn";
-            this.roleIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // isActiveDataGridViewTextBoxColumn
-            // 
-            this.isActiveDataGridViewTextBoxColumn.DataPropertyName = "IsActive";
-            this.isActiveDataGridViewTextBoxColumn.HeaderText = "IsActive";
-            this.isActiveDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
-            this.isActiveDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // createdAtDataGridViewTextBoxColumn
-            // 
-            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
-            this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // edit_btn
-            // 
-            this.edit_btn.HeaderText = "";
-            this.edit_btn.MinimumWidth = 6;
-            this.edit_btn.Name = "edit_btn";
-            this.edit_btn.ReadOnly = true;
-            this.edit_btn.Text = "Edit";
-            this.edit_btn.UseColumnTextForButtonValue = true;
-            // 
-            // del_btn
-            // 
-            this.del_btn.HeaderText = "";
-            this.del_btn.MinimumWidth = 6;
-            this.del_btn.Name = "del_btn";
-            this.del_btn.ReadOnly = true;
-            this.del_btn.Text = "Delete";
-            this.del_btn.UseColumnTextForButtonValue = true;
-            // 
             // KelolaUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -354,7 +354,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "KelolaUserForm";
-            this.Text = "KelolaUserForm";
+            this.Text = "Kelola User";
             this.Load += new System.EventHandler(this.KelolaUserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBinding1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

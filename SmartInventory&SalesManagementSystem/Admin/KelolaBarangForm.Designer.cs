@@ -349,7 +349,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "KelolaBarangForm";
-            this.Text = "KelolaBarangForm";
+            this.Text = "Kelola Barang";
             this.Load += new System.EventHandler(this.KelolaBarangForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();

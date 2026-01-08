@@ -60,6 +60,18 @@ namespace SmartInventory_SalesManagementSystem.Admin
                     dataGridView1.Enabled = false;
                     supplierbinding1.DataSource = db.Suppliers.AsNoTracking().FirstOrDefault(s => s.SupplierId == supplier.SupplierId);
                 }
+                if (e.ColumnIndex == del_btn.Index)
+                {
+                    if (MessageBox.Show("Apakah anda ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    db.Suppliers.Remove(supplier);
+                    if (db.SaveChanges() > 0)
+                    {
+                        MessageBox.Show("Data berhasil di hapus");
+                    }
+                }
             }
         }
 
