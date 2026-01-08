@@ -21,6 +21,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void KelolaSupplierForm_Load(object sender, EventArgs e)
         {
+            // dadada
             textBox1.Enabled = true;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
