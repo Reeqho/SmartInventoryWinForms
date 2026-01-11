@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jam_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -74,8 +74,8 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userIdDataGridViewTextBoxColumn,
             this.saleDateDataGridViewTextBoxColumn,
+            this.jam_col,
             this.totalAmountDataGridViewTextBoxColumn,
             this.detail_btn});
             this.dataGridView1.DataSource = this.saleBindingSource;
@@ -87,14 +87,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1155, 209);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "Nama Kasir";
-            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // saleDateDataGridViewTextBoxColumn
             // 
@@ -103,6 +96,13 @@
             this.saleDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
             this.saleDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jam_col
+            // 
+            this.jam_col.HeaderText = "Jam";
+            this.jam_col.MinimumWidth = 6;
+            this.jam_col.Name = "jam_col";
+            this.jam_col.ReadOnly = true;
             // 
             // totalAmountDataGridViewTextBoxColumn
             // 
@@ -292,8 +292,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subTotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jam_col;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn detail_btn;
     }

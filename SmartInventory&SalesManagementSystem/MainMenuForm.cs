@@ -1,5 +1,6 @@
 ﻿using SmartInventory_SalesManagementSystem.Admin;
 using SmartInventory_SalesManagementSystem.Kasir;
+using SmartInventory_SalesManagementSystem.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,7 @@ namespace SmartInventory_SalesManagementSystem
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
 
-            if (IsAdmin == false)
+            if (SessionManager.CurrentUser.Role.RoleName != "Admin")
             {
                 tableLayoutPanel1.Visible = false;
                 tableLayoutPanel1.Controls.Clear();
@@ -98,6 +99,55 @@ namespace SmartInventory_SalesManagementSystem
         private void button9_Click(object sender, EventArgs e)
         {
             OpenForm(new RiwayatTransaksiForm());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+       "Apakah anda yakin ingin logout?",
+       "Konfirmasi",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.No)
+                return;
+
+            // 1. Clear session
+            SessionManager.Clear();
+
+            // 2. Kembali ke LoginForm
+            Login login = new Login();
+            login.Show();
+
+            // 3. Tutup MainForm
+            this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+      "Apakah anda yakin ingin logout?",
+      "Konfirmasi",
+      MessageBoxButtons.YesNo,
+      MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.No)
+                return;
+
+
+            SessionManager.Clear();
+
+
+            Login login = new Login();
+            login.Show();
+
+
+            this.Close();
+        }
+
+        private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SessionManager.Clear();
         }
     }
 }

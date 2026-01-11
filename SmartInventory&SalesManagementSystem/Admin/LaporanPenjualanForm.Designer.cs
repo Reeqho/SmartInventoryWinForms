@@ -31,6 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggal_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jam_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -39,14 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tanggal_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jam_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,65 @@
             this.dataGridView1.TabIndex = 28;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // saleIdDataGridViewTextBoxColumn
+            // 
+            this.saleIdDataGridViewTextBoxColumn.DataPropertyName = "SaleId";
+            this.saleIdDataGridViewTextBoxColumn.HeaderText = "Kasir";
+            this.saleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.saleIdDataGridViewTextBoxColumn.Name = "saleIdDataGridViewTextBoxColumn";
+            this.saleIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productIdDataGridViewTextBoxColumn
+            // 
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "Nama Produk";
+            this.productIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Kuantitas";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Harga";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tanggal_col
+            // 
+            this.tanggal_col.HeaderText = "Tanggal";
+            this.tanggal_col.MinimumWidth = 6;
+            this.tanggal_col.Name = "tanggal_col";
+            this.tanggal_col.ReadOnly = true;
+            // 
+            // jam_col
+            // 
+            this.jam_col.HeaderText = "Jam";
+            this.jam_col.MinimumWidth = 6;
+            this.jam_col.Name = "jam_col";
+            this.jam_col.ReadOnly = true;
+            // 
+            // subTotalDataGridViewTextBoxColumn
+            // 
+            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
+            this.subTotalDataGridViewTextBoxColumn.HeaderText = "Jumlah Total";
+            this.subTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
+            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
+            this.saleDetailBindingSource.CurrentChanged += new System.EventHandler(this.saleDetailBindingSource_CurrentChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -97,6 +156,8 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(126, 49);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(235, 22);
@@ -104,6 +165,8 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(126, 77);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(235, 22);
@@ -152,65 +215,6 @@
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 37;
             this.label5.Text = "Omzet : ";
-            // 
-            // tanggal_col
-            // 
-            this.tanggal_col.HeaderText = "Tanggal";
-            this.tanggal_col.MinimumWidth = 6;
-            this.tanggal_col.Name = "tanggal_col";
-            this.tanggal_col.ReadOnly = true;
-            // 
-            // jam_col
-            // 
-            this.jam_col.HeaderText = "Jam";
-            this.jam_col.MinimumWidth = 6;
-            this.jam_col.Name = "jam_col";
-            this.jam_col.ReadOnly = true;
-            // 
-            // saleIdDataGridViewTextBoxColumn
-            // 
-            this.saleIdDataGridViewTextBoxColumn.DataPropertyName = "SaleId";
-            this.saleIdDataGridViewTextBoxColumn.HeaderText = "Kasir";
-            this.saleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.saleIdDataGridViewTextBoxColumn.Name = "saleIdDataGridViewTextBoxColumn";
-            this.saleIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productIdDataGridViewTextBoxColumn
-            // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "Nama Produk";
-            this.productIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Kuantitas";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Harga";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // subTotalDataGridViewTextBoxColumn
-            // 
-            this.subTotalDataGridViewTextBoxColumn.DataPropertyName = "SubTotal";
-            this.subTotalDataGridViewTextBoxColumn.HeaderText = "Jumlah Total";
-            this.subTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subTotalDataGridViewTextBoxColumn.Name = "subTotalDataGridViewTextBoxColumn";
-            this.subTotalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(SmartInventory_SalesManagementSystem.SaleDetail);
-            this.saleDetailBindingSource.CurrentChanged += new System.EventHandler(this.saleDetailBindingSource_CurrentChanged);
             // 
             // LaporanPenjualanForm
             // 

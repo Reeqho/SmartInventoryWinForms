@@ -82,6 +82,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "Logout";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -152,7 +153,7 @@
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(213, 673);
+            this.menuStrip1.Size = new System.Drawing.Size(214, 673);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -205,6 +206,7 @@
             this.button8.TabIndex = 4;
             this.button8.Text = "LogOut";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button10
             // 
@@ -230,6 +232,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuForm_FormClosing);
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);

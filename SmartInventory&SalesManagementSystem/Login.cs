@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartInventory_SalesManagementSystem.Session;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,19 +29,15 @@ namespace SmartInventory_SalesManagementSystem
             else
             {
                 var user = db.Users.FirstOrDefault(s => s.Username == textBox1.Text && s.PasswordHash == textBox2.Text);
-                if(user == null)
+                if (user == null)
                 {
                     MessageBox.Show("Invalid user ");
                     return;
                 }
-                else if (user.Role.RoleName == "kasir")
-                {
-                    
-                }
-                else if (user.Role.RoleName == "admin")
-                {
-                   
-                }
+                SessionManager.SetUser(user);
+                MainMenuForm mainMenuForm = new MainMenuForm();
+                mainMenuForm.Show();
+                Hide();
             }
 
         }

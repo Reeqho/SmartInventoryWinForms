@@ -1,10 +1,14 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +74,21 @@ namespace SmartInventory_SalesManagementSystem.Kasir
                 if (e.ColumnIndex == productIdDataGridViewTextBoxColumn.Index)
                 {
                     e.Value = saledetail.Product.ProductName;
+                }
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Sale sale)
+            {
+                if (e.ColumnIndex == jam_col.Index)
+                {
+                    e.Value = sale.SaleDate.Value.ToString("HH:mm:ss");
+                }
+                if (e.ColumnIndex == saleDateDataGridViewTextBoxColumn.Index)
+                {
+                    e.Value = sale.SaleDate.Value.ToString("dd MMMM yyyy");
                 }
             }
         }

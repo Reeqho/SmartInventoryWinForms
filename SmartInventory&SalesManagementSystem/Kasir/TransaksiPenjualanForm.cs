@@ -1,10 +1,13 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,59 +104,137 @@ namespace SmartInventory_SalesManagementSystem.Kasir
                 MessageBox.Show("Mohon masukan pesanan");
                 return;
             }
-            else
+
+            if (MessageBox.Show("Apakah transaksi sudah selesai?",
+                "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            using (var transaction = db.Database.BeginTransaction())
             {
-                var carts = cartBindingSource.List.Cast<Cart>().ToList();
-                var product = db.Products;
-
-                // Add Update Stock
-                foreach (Cart cart in carts)
+                try
                 {
-                    var stock_produk = product.FirstOrDefault(s => s.ProductId == cart.ProductId);
-                    if (stock_produk.Stock < cart.Quantity)
+                    var carts = cartBindingSource.List.Cast<Cart>().ToList();
+
+                    // ===== CEK & UPDATE STOK =====
+                    foreach (Cart cart in carts)
                     {
-                        MessageBox.Show("Stock produk kurang");
-                        return;
+                        var product = db.Products.First(p => p.ProductId == cart.ProductId);
+
+                        if (product.Stock < cart.Quantity)
+                        {
+                            MessageBox.Show($"Stock {product.ProductName} kurang");
+                            return;
+                        }
+
+                        product.Stock -= cart.Quantity;
                     }
-                    else
+
+                    // ===== SALE =====
+                    Sale sale = new Sale
                     {
-                        stock_produk.Stock -= cart.Quantity;
+                        SaleDate = DateTime.Now,
+                        UserId = 1
+                    };
+
+                    db.Sales.Add(sale);
+                    db.SaveChanges(); // ⬅ penting agar SaleId terbentuk
+
+                    // ===== SALE DETAIL =====
+                    foreach (Cart cart in carts)
+                    {
+                        SaleDetail detail = new SaleDetail
+                        {
+                            SaleId = sale.SaleId,
+                            ProductId = cart.ProductId,
+                            Quantity = cart.Quantity,
+                            Price = cart.Price
+                        };
+
+                        db.SaleDetails.Add(detail);
                     }
-                    db.Products.AddOrUpdate(stock_produk);
-                }
 
-                // Add Sale
-                Sale sale = new Sale();
-                sale.SaleDate = DateTime.Now;
-                sale.UserId = 1;
-                sale.TotalAmount = carts.Sum(c => c.SubTotal);
-                db.Sales.Add(sale);
+                    db.SaveChanges();
+                    transaction.Commit();
 
-                // Add Sales Detail
-                foreach (Cart cart in carts)
-                {
-                    SaleDetail saleDetail = new SaleDetail();
-                    saleDetail.Price = cart.Price;
-                    saleDetail.ProductId = cart.ProductId;
-                    saleDetail.Quantity = cart.Quantity;
-                    saleDetail.SubTotal = cart.SubTotal;
-                    saleDetail.Quantity = cart.Quantity;
-                    db.SaleDetails.Add(saleDetail);
-                }
+                    MessageBox.Show("Pesanan berhasil dibayar");
 
-                if (MessageBox.Show("Apakah transaksi sudah selesai?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    return;
-                }
-                if (db.SaveChanges() > 0)
-                {
-                    MessageBox.Show("Pesanan berhasil di bayar");
+                    // ===== CETAK STRUK =====
+                    if (MessageBox.Show("Cetak struk?", "Cetak",
+                        MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        CetakStruk(carts);
+                    }
+
                     cartBindingSource.Clear();
                     TransaksiPenjualanForm_Load(sender, e);
                 }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Transaksi gagal: " + ex.Message);
+                }
+            }
+        }
+
+        private void CetakStruk(List<Cart> carts)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "PDF Files (*.pdf)|*.pdf",
+                FileName = "Struk_Bayar.pdf"
+            };
+
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            Document doc = new Document(PageSize.A4, 25, 25, 25, 25);
+            PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+            doc.Open();
+
+            Paragraph title = new Paragraph("STRUK PEMBAYARAN\n\n",
+                FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16))
+            { Alignment = Element.ALIGN_CENTER };
+
+            doc.Add(title);
+            doc.Add(new Paragraph($"Tanggal: {DateTime.Now:dd MMMM yyyy HH:mm:ss}\n\n"));
+
+            PdfPTable table = new PdfPTable(4) { WidthPercentage = 100 };
+            table.SetWidths(new float[] { 40f, 15f, 20f, 25f });
+
+            AddCell(table, "Produk", true);
+            AddCell(table, "Qty", true);
+            AddCell(table, "Harga", true);
+            AddCell(table, "Subtotal", true);
+
+            decimal total = 0;
+
+            foreach (var cart in carts)
+            {
+                decimal subtotal = cart.Quantity * cart.Price;
+                total += subtotal;
+
+                AddCell(table, cart.ProductName);
+                AddCell(table, cart.Quantity.ToString());
+                AddCell(table, cart.Price.ToString("C", CultureInfo.GetCultureInfo("id-ID")));
+                AddCell(table, subtotal.ToString("C", CultureInfo.GetCultureInfo("id-ID")));
             }
 
+            doc.Add(table);
+            doc.Add(new Paragraph($"\nTOTAL: {total:C}",
+                FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12)));
 
+            doc.Close();
+        }
+
+        private void AddCell(PdfPTable table, string text, bool isHeader = false)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(text, FontFactory.GetFont(FontFactory.HELVETICA, isHeader ? 10 : 9)));
+
+            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            cell.Padding = 5;
+            cell.BackgroundColor = isHeader ? BaseColor.LIGHT_GRAY : BaseColor.WHITE;
+
+            table.AddCell(cell);
         }
 
         private void cartBindingSource_ListChanged(object sender, ListChangedEventArgs e)
