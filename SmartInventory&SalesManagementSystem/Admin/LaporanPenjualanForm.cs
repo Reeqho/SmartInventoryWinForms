@@ -63,5 +63,19 @@ namespace SmartInventory_SalesManagementSystem.Admin
         {
             label5.Text = "Total Omzet : " + saleDetailBindingSource.Cast<SaleDetail>().Sum(x => x.Quantity * x.Price).ToString("C", CultureInfo.GetCultureInfo("id-ID"));
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                LaporanPenjualanForm_Load(sender, e);
+            }
+            else
+            {
+                saleDetailBindingSource.DataSource = db.SaleDetails
+                .Where(x => x.Product.ProductName.ToLower().Trim().Contains(textBox1.Text.Trim().ToLower()))
+                .ToList();
+            }
+        }
     }
 }

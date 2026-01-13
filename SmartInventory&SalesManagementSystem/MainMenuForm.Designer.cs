@@ -69,16 +69,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(210, 666);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(210, 677);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(3, 553);
+            this.button6.Location = new System.Drawing.Point(3, 563);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(204, 110);
+            this.button6.Size = new System.Drawing.Size(204, 111);
             this.button6.TabIndex = 5;
             this.button6.Text = "Logout";
             this.button6.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(3, 443);
+            this.button5.Location = new System.Drawing.Point(3, 451);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(204, 104);
+            this.button5.Size = new System.Drawing.Size(204, 106);
             this.button5.TabIndex = 4;
             this.button5.Text = "Laporan Penjualan";
             this.button5.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(3, 333);
+            this.button4.Location = new System.Drawing.Point(3, 339);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(204, 104);
+            this.button4.Size = new System.Drawing.Size(204, 106);
             this.button4.TabIndex = 3;
             this.button4.Text = "Kelola Supplier";
             this.button4.UseVisualStyleBackColor = true;
@@ -112,9 +112,9 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Location = new System.Drawing.Point(3, 223);
+            this.button3.Location = new System.Drawing.Point(3, 227);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 104);
+            this.button3.Size = new System.Drawing.Size(204, 106);
             this.button3.TabIndex = 2;
             this.button3.Text = "Kelola Kategori";
             this.button3.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 104);
+            this.button1.Size = new System.Drawing.Size(204, 106);
             this.button1.TabIndex = 0;
             this.button1.Text = "Kelola User";
             this.button1.UseVisualStyleBackColor = true;
@@ -136,9 +136,9 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(3, 113);
+            this.button2.Location = new System.Drawing.Point(3, 115);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(204, 104);
+            this.button2.Size = new System.Drawing.Size(204, 106);
             this.button2.TabIndex = 1;
             this.button2.Text = "Kelola Barang";
             this.button2.UseVisualStyleBackColor = true;
@@ -153,7 +153,7 @@
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(214, 673);
+            this.menuStrip1.Size = new System.Drawing.Size(213, 684);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -181,16 +181,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(210, 666);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(210, 677);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.Location = new System.Drawing.Point(3, 225);
+            this.button9.Location = new System.Drawing.Point(3, 228);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(204, 216);
+            this.button9.Size = new System.Drawing.Size(204, 219);
             this.button9.TabIndex = 3;
             this.button9.Text = "Riwayat Transaksi";
             this.button9.UseVisualStyleBackColor = true;
@@ -200,9 +200,9 @@
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.Location = new System.Drawing.Point(3, 447);
+            this.button8.Location = new System.Drawing.Point(3, 453);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(204, 216);
+            this.button8.Size = new System.Drawing.Size(204, 221);
             this.button8.TabIndex = 4;
             this.button8.Text = "LogOut";
             this.button8.UseVisualStyleBackColor = true;
@@ -214,7 +214,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button10.Location = new System.Drawing.Point(3, 3);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(204, 216);
+            this.button10.Size = new System.Drawing.Size(204, 219);
             this.button10.TabIndex = 2;
             this.button10.Text = "Transaksi Penjualan";
             this.button10.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 673);
+            this.ClientSize = new System.Drawing.Size(1216, 684);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
