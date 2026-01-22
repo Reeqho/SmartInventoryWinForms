@@ -18,7 +18,7 @@ namespace SmartInventory_SalesManagementSystem.Kasir
 {
     public partial class TransaksiPenjualanForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
 
         public TransaksiPenjualanForm()
         {
@@ -133,11 +133,12 @@ namespace SmartInventory_SalesManagementSystem.Kasir
                     Sale sale = new Sale
                     {
                         SaleDate = DateTime.Now,
-                        UserId = 1
+                        UserId = 1,
+                        TotalAmount = carts.Sum(c => c.SubTotal)
                     };
 
                     db.Sales.Add(sale);
-                    db.SaveChanges(); // ⬅ penting agar SaleId terbentuk
+                    db.SaveChanges(); 
 
                     // ===== SALE DETAIL =====
                     foreach (Cart cart in carts)
@@ -147,7 +148,8 @@ namespace SmartInventory_SalesManagementSystem.Kasir
                             SaleId = sale.SaleId,
                             ProductId = cart.ProductId,
                             Quantity = cart.Quantity,
-                            Price = cart.Price
+                            Price = cart.Price,
+                            SubTotal = cart.SubTotal
                         };
 
                         db.SaleDetails.Add(detail);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
 {
     public partial class KelolaUserForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public KelolaUserForm()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void KelolaUserForm_Load(object sender, EventArgs e)
         {
+            //userBinding1.Clear();
             dataGridView1.Enabled = true;
             textBox1.Enabled = true;
             textBox2.Enabled = false;
@@ -36,8 +38,6 @@ namespace SmartInventory_SalesManagementSystem.Admin
             roleBindingSource.DataSource = db.Roles.ToList();
             FormBorderStyle = FormBorderStyle.None;
             Bounds = Screen.PrimaryScreen.Bounds;
-
-           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,7 +58,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
                     button2.Enabled = true;
                     button3.Enabled = false;
                     userBinding1.DataSource = db.Users.AsNoTracking().FirstOrDefault(s => s.UserId == user.UserId);
-                    if(user.IsActive == true)
+                    if (user.IsActive == true)
                     {
                         radioButton1.Checked = true;
                         radioButton2.Checked = false;
@@ -87,14 +87,25 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (userBinding1.Current is User user)
+            if (userBinding1.Current is User check_user && roleBindingSource.Current is Role role)
             {
-                user.IsActive = radioButton1.Checked ? true : false;
-                db.Users.AddOrUpdate(user);
+                check_user.IsActive = radioButton1.Checked ? true : false;
                 if (MessageBox.Show("Apakah anda ingin menyimpan data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;
                 }
+                var user = db.Users.FirstOrDefault(s => s.UserId == check_user.UserId);
+                if (user == null)
+                {
+                    user = new User();
+                    user.CreatedAt = DateTime.Now;
+                    db.Users.Add(user);
+                }
+                user.FullName = textBox2.Text;
+                user.Username = textBox3.Text;
+                user.PasswordHash = textBox4.Text;
+                user.IsActive = check_user.IsActive;
+                user.RoleId = role.RoleId;
                 if (db.SaveChanges() > 0)
                 {
                     MessageBox.Show("Data berhasil di simpan");
@@ -123,7 +134,6 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void button3_Click(object sender, EventArgs e)
         {
-            userBinding1.Clear();
             userBinding1.AddNew();
             dataGridView1.Enabled = false;
             textBox1.Enabled = true;
@@ -160,7 +170,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
         {
             if (dataGridView1.Rows[e.RowIndex].DataBoundItem is User user)
             {
-                if(e.ColumnIndex == roleIdDataGridViewTextBoxColumn.Index)
+                if (e.ColumnIndex == roleIdDataGridViewTextBoxColumn.Index)
                 {
                     e.Value = user.Role.RoleName;
                 }

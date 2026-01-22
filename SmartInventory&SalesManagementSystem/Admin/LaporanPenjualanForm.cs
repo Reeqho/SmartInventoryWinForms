@@ -14,7 +14,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
 {
     public partial class LaporanPenjualanForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public LaporanPenjualanForm()
         {
             InitializeComponent();
@@ -28,8 +28,8 @@ namespace SmartInventory_SalesManagementSystem.Admin
         private void button1_Click(object sender, EventArgs e)
         {
             saleDetailBindingSource.DataSource = db.SaleDetails.
-                Where(x => DbFunctions.TruncateTime(x.Sale.SaleDate) >= DbFunctions.TruncateTime(dateTimePicker1.Value)
-                && DbFunctions.TruncateTime(x.Sale.SaleDate) <= DbFunctions.TruncateTime(dateTimePicker2.Value)).ToList();
+                Where(x => x.Sale.SaleDate >= dateTimePicker1.Value
+                && x.Sale.SaleDate <= dateTimePicker2.Value).ToList();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

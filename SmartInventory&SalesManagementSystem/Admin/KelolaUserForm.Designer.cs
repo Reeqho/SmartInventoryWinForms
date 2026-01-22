@@ -294,7 +294,6 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.userBinding1, "RoleId", true));
             this.comboBox1.DataSource = this.roleBindingSource;
             this.comboBox1.DisplayMember = "RoleName";
             this.comboBox1.FormattingEnabled = true;

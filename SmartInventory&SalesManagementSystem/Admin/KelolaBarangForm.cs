@@ -8,13 +8,14 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
 
 namespace SmartInventory_SalesManagementSystem.Admin
 {
     public partial class KelolaBarangForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public KelolaBarangForm()
         {
             InitializeComponent();
@@ -54,7 +55,6 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ProductBinding1.Clear();
             ProductBinding1.AddNew();
             dataGridView1.Enabled = false;
             textBox1.Enabled = false;
@@ -66,40 +66,41 @@ namespace SmartInventory_SalesManagementSystem.Admin
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = false;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ProductBinding1.Current is Product product
+            if (ProductBinding1.Current is Product formProduct
                 && categoryBindingSource.Current is Category category
                 && supplierBindingSource.Current is Supplier supplier)
             {
-                product.CategoryId = category.CategoryId;
-                product.SupplierId = supplier.SupplierId;
-                //product.Price += .00;
-                var check_product = db.Products.FirstOrDefault(s => s.ProductId == product.ProductId);
-                if (check_product == null)
+                var product = db.Products
+                    .FirstOrDefault(p => p.ProductId == formProduct.ProductId);
+                if (product == null)
                 {
-                    product.CreatedAt = DateTime.Now;
+                    product = new Product
+                    {
+                        CreatedAt = DateTime.Now
+                    };
                     db.Products.Add(product);
                 }
-                else
-                {
-                    db.Products.AddOrUpdate(product);
-                }
+                product.ProductName = formProduct.ProductName;
+                product.Price = formProduct.Price;
+                product.Stock = formProduct.Stock;
+                product.CategoryId = category.CategoryId;
+                product.SupplierId = supplier.SupplierId;
 
 
-                if (MessageBox.Show("Apakah anda ingin menyimpan data tersebut?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
+
+                if (MessageBox.Show("Apakah anda ingin menyimpan data tersebut?",
+                    "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;
                 }
-                if (db.SaveChanges() > 0)
-                {
-                    MessageBox.Show("Data berhasil di simpan");
-                    KelolaBarangForm_Load(sender, e);
-                }
+
+                db.SaveChanges();
+                MessageBox.Show("Data berhasil disimpan");
+                KelolaBarangForm_Load(sender, e);
             }
         }
 

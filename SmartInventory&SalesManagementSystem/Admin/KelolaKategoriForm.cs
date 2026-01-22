@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace SmartInventory_SalesManagementSystem.Admin
 {
     public partial class KelolaKategoriForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public KelolaKategoriForm()
         {
             InitializeComponent();
@@ -87,9 +88,19 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (categorybinding1.Current is Category category)
+            if (categorybinding1.Current is Category check_category)
             {
-                db.Categories.AddOrUpdate(category);
+                var category = db.Categories.FirstOrDefault(s => s.CategoryId == check_category.CategoryId);
+                if (category == null)
+                {
+                    category = new Category()
+                    {
+                        CategoryName = check_category.CategoryName
+                    };
+                    db.Categories.Add(category);
+                }
+                category.CategoryName = check_category.CategoryName;
+
                 if (MessageBox.Show("Apakah anda ingin menyimpan data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;

@@ -7,13 +7,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
 
 namespace SmartInventory_SalesManagementSystem.Admin
 {
     public partial class KelolaSupplierForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public KelolaSupplierForm()
         {
             InitializeComponent();
@@ -78,13 +79,21 @@ namespace SmartInventory_SalesManagementSystem.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (supplierbinding1.Current is Supplier supplier)
+            if (supplierbinding1.Current is Supplier check_supplier)
             {
-                db.Suppliers.AddOrUpdate(supplier);
                 if (MessageBox.Show("Apakah anda ingin menyimpan data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     return;
                 }
+                var supplier = db.Suppliers.FirstOrDefault(s => s.SupplierId == check_supplier.SupplierId);
+                if (supplier == null)
+                {
+                    supplier = new Supplier();
+                    db.Suppliers.Add(supplier);
+                }
+                supplier.SupplierName = check_supplier.SupplierName;
+                supplier.Address = check_supplier.Address;
+                supplier.Phone = check_supplier.Phone;
                 if (db.SaveChanges() > 0)
                 {
                     MessageBox.Show("Data berhasil di simpan");

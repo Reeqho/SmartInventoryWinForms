@@ -18,7 +18,7 @@ namespace SmartInventory_SalesManagementSystem.Kasir
 {
     public partial class RiwayatTransaksiForm : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public RiwayatTransaksiForm()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace SmartInventory_SalesManagementSystem.Kasir
         {
             saleDetailBindingSource.Clear();
             saleBindingSource.Clear();
-            SaleBindingTanggal.DataSource = db.Sales.Select(s => DbFunctions.TruncateTime(s.SaleDate)).Distinct().ToList();
+            SaleBindingTanggal.DataSource = db.Sales.Select(s => s.SaleDate).Distinct().ToList();
             saleBindingSource.DataSource = db.Sales.ToList();
         }
 
@@ -64,7 +64,7 @@ namespace SmartInventory_SalesManagementSystem.Kasir
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Parse(comboBox2.Text);
-            saleBindingSource.DataSource = db.Sales.Where(s => DbFunctions.TruncateTime(s.SaleDate) == DbFunctions.TruncateTime(date.Date)).ToList();
+            saleBindingSource.DataSource = db.Sales.Where(s => s.SaleDate.Value.Date == date.Date).ToList();
         }
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

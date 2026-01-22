@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace SmartInventory_SalesManagementSystem
 {
     public partial class Login : Form
     {
-        SmartInventoryDBEntities db = new SmartInventoryDBEntities();
+        SmartInventoryDbContext db = new SmartInventoryDbContext();
         public Login()
         {
             InitializeComponent();
@@ -28,23 +29,53 @@ namespace SmartInventory_SalesManagementSystem
             }
             else
             {
-                var user = db.Users.FirstOrDefault(s => s.Username == textBox1.Text && s.PasswordHash == textBox2.Text);
-                if (user == null)
+
+                var user = db.Users.FirstOrDefault(u => u.Username == textBox1.Text && u.PasswordHash == textBox2.Text);
+
+                if (user?.Role != null)
                 {
-                    MessageBox.Show("Invalid user ");
+                    SessionManager.SetUser(user);
+                    MainMenuForm mainMenuForm = new MainMenuForm();
+                    mainMenuForm.Show();
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Role belum tersedia!");
                     return;
                 }
-                SessionManager.SetUser(user);
-                MainMenuForm mainMenuForm = new MainMenuForm();
-                mainMenuForm.Show();
-                Hide();
+
             }
 
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            using (var db = new SmartInventoryDbContext())
+            {
+                if (!db.Roles.Any())
+                {
+                    db.Roles.Add(new Role { RoleName = "Admin" });
+                    db.Roles.Add(new Role { RoleName = "Kasir" });
+                    db.SaveChanges();
+                }
+            }
 
+            textBox1.Text = "admin";
+            textBox2.Text = "admin123";
+            textBox2.UseSystemPasswordChar = true;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = true;
+            }
         }
     }
 }

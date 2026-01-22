@@ -1,5 +1,7 @@
-﻿using SmartInventory_SalesManagementSystem.Admin;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartInventory_SalesManagementSystem.Admin;
 using SmartInventory_SalesManagementSystem.Kasir;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,12 @@ namespace SmartInventory_SalesManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            using (var db = new SmartInventoryDbContext())
+            {
+                //Batteries.Init();
+                db.Database.EnsureCreated();
+                SmartInventorySeeder.Seed(db);
+            }
             Application.Run(new AppContext());
         }
     }
