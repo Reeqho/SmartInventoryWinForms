@@ -63,6 +63,10 @@ namespace SmartInventory_SalesManagementSystem
 
             textBox1.Text = "admin";
             textBox2.Text = "admin123";
+
+            // kasir  
+            //textBox1.Text = "kasir1";
+            //textBox2.Text = "123456";
             textBox2.UseSystemPasswordChar = true;
         }
 

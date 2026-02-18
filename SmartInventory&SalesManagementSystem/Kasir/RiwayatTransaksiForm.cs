@@ -23,7 +23,7 @@ namespace SmartInventory_SalesManagementSystem.Kasir
         {
             InitializeComponent();
         }
-
+        // checking
         private void RiwayatTransaksiForm_Load(object sender, EventArgs e)
         {
             saleDetailBindingSource.Clear();
@@ -80,17 +80,25 @@ namespace SmartInventory_SalesManagementSystem.Kasir
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Sale sale)
+            try
             {
-                if (e.ColumnIndex == jam_col.Index)
+                if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Sale sale)
                 {
-                    e.Value = sale.SaleDate.Value.ToString("HH:mm:ss");
-                }
-                if (e.ColumnIndex == saleDateDataGridViewTextBoxColumn.Index)
-                {
-                    e.Value = sale.SaleDate.Value.ToString("dd MMMM yyyy");
+                    if (e.ColumnIndex == jam_col.Index)
+                    {
+                        e.Value = sale.SaleDate.Value.ToString("HH:mm:ss");
+                    }
+                    if (e.ColumnIndex == saleDateDataGridViewTextBoxColumn.Index)
+                    {
+                        e.Value = sale.SaleDate.Value.ToString("dd MMMM yyyy");
+                    }
                 }
             }
+            catch
+            {
+
+            }
+
         }
     }
 }
